@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AEC6F5DC18999E5200A40AA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC6F5DB18999E5200A40AA8 /* Foundation.framework */; };
+		AEC6F5DE18999E5200A40AA8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC6F5DD18999E5200A40AA8 /* CoreGraphics.framework */; };
+		AEC6F5E018999E5200A40AA8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC6F5DF18999E5200A40AA8 /* UIKit.framework */; };
+		AEC6F5E218999E5200A40AA8 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC6F5E118999E5200A40AA8 /* SpriteKit.framework */; };
+		AEC6F5E818999E5200A40AA8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEC6F5E618999E5200A40AA8 /* InfoPlist.strings */; };
+		AEC6F5EA18999E5200A40AA8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC6F5E918999E5200A40AA8 /* main.m */; };
+		AEC6F5EE18999E5200A40AA8 /* FPYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC6F5ED18999E5200A40AA8 /* FPYAppDelegate.m */; };
+		AEC6F5F118999E5200A40AA8 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEC6F5EF18999E5200A40AA8 /* Main_iPhone.storyboard */; };
+		AEC6F5F418999E5200A40AA8 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEC6F5F218999E5200A40AA8 /* Main_iPad.storyboard */; };
+		AEC6F5F718999E5200A40AA8 /* FPYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC6F5F618999E5200A40AA8 /* FPYViewController.m */; };
+		AEC6F5FA18999E5200A40AA8 /* FPYMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC6F5F918999E5200A40AA8 /* FPYMyScene.m */; };
+		AEC6F5FC18999E5200A40AA8 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = AEC6F5FB18999E5200A40AA8 /* Spaceship.png */; };
+		AEC6F5FE18999E5200A40AA8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEC6F5FD18999E5200A40AA8 /* Images.xcassets */; };
+		AEC6F60518999E5200A40AA8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC6F60418999E5200A40AA8 /* XCTest.framework */; };
+		AEC6F60618999E5200A40AA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC6F5DB18999E5200A40AA8 /* Foundation.framework */; };
+		AEC6F60718999E5200A40AA8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC6F5DF18999E5200A40AA8 /* UIKit.framework */; };
+		AEC6F60F18999E5200A40AA8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEC6F60D18999E5200A40AA8 /* InfoPlist.strings */; };
+		AEC6F61118999E5200A40AA8 /* Floppy_FishTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC6F61018999E5200A40AA8 /* Floppy_FishTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AEC6F60818999E5200A40AA8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEC6F5D018999E5200A40AA8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AEC6F5D718999E5200A40AA8;
+			remoteInfo = "Floppy Fish";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AEC6F5D818999E5200A40AA8 /* Floppy Fish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Floppy Fish.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEC6F5DB18999E5200A40AA8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AEC6F5DD18999E5200A40AA8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AEC6F5DF18999E5200A40AA8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AEC6F5E118999E5200A40AA8 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		AEC6F5E518999E5200A40AA8 /* Floppy Fish-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Floppy Fish-Info.plist"; sourceTree = "<group>"; };
+		AEC6F5E718999E5200A40AA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AEC6F5E918999E5200A40AA8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AEC6F5EB18999E5200A40AA8 /* Floppy Fish-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Floppy Fish-Prefix.pch"; sourceTree = "<group>"; };
+		AEC6F5EC18999E5200A40AA8 /* FPYAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPYAppDelegate.h; sourceTree = "<group>"; };
+		AEC6F5ED18999E5200A40AA8 /* FPYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPYAppDelegate.m; sourceTree = "<group>"; };
+		AEC6F5F018999E5200A40AA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		AEC6F5F318999E5200A40AA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		AEC6F5F518999E5200A40AA8 /* FPYViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPYViewController.h; sourceTree = "<group>"; };
+		AEC6F5F618999E5200A40AA8 /* FPYViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPYViewController.m; sourceTree = "<group>"; };
+		AEC6F5F818999E5200A40AA8 /* FPYMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPYMyScene.h; sourceTree = "<group>"; };
+		AEC6F5F918999E5200A40AA8 /* FPYMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPYMyScene.m; sourceTree = "<group>"; };
+		AEC6F5FB18999E5200A40AA8 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		AEC6F5FD18999E5200A40AA8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AEC6F60318999E5200A40AA8 /* Floppy FishTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Floppy FishTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEC6F60418999E5200A40AA8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		AEC6F60C18999E5200A40AA8 /* Floppy FishTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Floppy FishTests-Info.plist"; sourceTree = "<group>"; };
+		AEC6F60E18999E5200A40AA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AEC6F61018999E5200A40AA8 /* Floppy_FishTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Floppy_FishTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AEC6F5D518999E5200A40AA8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEC6F5DE18999E5200A40AA8 /* CoreGraphics.framework in Frameworks */,
+				AEC6F5E018999E5200A40AA8 /* UIKit.framework in Frameworks */,
+				AEC6F5E218999E5200A40AA8 /* SpriteKit.framework in Frameworks */,
+				AEC6F5DC18999E5200A40AA8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEC6F60018999E5200A40AA8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEC6F60518999E5200A40AA8 /* XCTest.framework in Frameworks */,
+				AEC6F60718999E5200A40AA8 /* UIKit.framework in Frameworks */,
+				AEC6F60618999E5200A40AA8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AEC6F5CF18999E5200A40AA8 = {
+			isa = PBXGroup;
+			children = (
+				AEC6F5E318999E5200A40AA8 /* Floppy Fish */,
+				AEC6F60A18999E5200A40AA8 /* Floppy FishTests */,
+				AEC6F5DA18999E5200A40AA8 /* Frameworks */,
+				AEC6F5D918999E5200A40AA8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AEC6F5D918999E5200A40AA8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AEC6F5D818999E5200A40AA8 /* Floppy Fish.app */,
+				AEC6F60318999E5200A40AA8 /* Floppy FishTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AEC6F5DA18999E5200A40AA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AEC6F5DB18999E5200A40AA8 /* Foundation.framework */,
+				AEC6F5DD18999E5200A40AA8 /* CoreGraphics.framework */,
+				AEC6F5DF18999E5200A40AA8 /* UIKit.framework */,
+				AEC6F5E118999E5200A40AA8 /* SpriteKit.framework */,
+				AEC6F60418999E5200A40AA8 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AEC6F5E318999E5200A40AA8 /* Floppy Fish */ = {
+			isa = PBXGroup;
+			children = (
+				AEC6F5EC18999E5200A40AA8 /* FPYAppDelegate.h */,
+				AEC6F5ED18999E5200A40AA8 /* FPYAppDelegate.m */,
+				AEC6F5EF18999E5200A40AA8 /* Main_iPhone.storyboard */,
+				AEC6F5F218999E5200A40AA8 /* Main_iPad.storyboard */,
+				AEC6F5F518999E5200A40AA8 /* FPYViewController.h */,
+				AEC6F5F618999E5200A40AA8 /* FPYViewController.m */,
+				AEC6F5F818999E5200A40AA8 /* FPYMyScene.h */,
+				AEC6F5F918999E5200A40AA8 /* FPYMyScene.m */,
+				AEC6F5FB18999E5200A40AA8 /* Spaceship.png */,
+				AEC6F5FD18999E5200A40AA8 /* Images.xcassets */,
+				AEC6F5E418999E5200A40AA8 /* Supporting Files */,
+			);
+			path = "Floppy Fish";
+			sourceTree = "<group>";
+		};
+		AEC6F5E418999E5200A40AA8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AEC6F5E518999E5200A40AA8 /* Floppy Fish-Info.plist */,
+				AEC6F5E618999E5200A40AA8 /* InfoPlist.strings */,
+				AEC6F5E918999E5200A40AA8 /* main.m */,
+				AEC6F5EB18999E5200A40AA8 /* Floppy Fish-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AEC6F60A18999E5200A40AA8 /* Floppy FishTests */ = {
+			isa = PBXGroup;
+			children = (
+				AEC6F61018999E5200A40AA8 /* Floppy_FishTests.m */,
+				AEC6F60B18999E5200A40AA8 /* Supporting Files */,
+			);
+			path = "Floppy FishTests";
+			sourceTree = "<group>";
+		};
+		AEC6F60B18999E5200A40AA8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AEC6F60C18999E5200A40AA8 /* Floppy FishTests-Info.plist */,
+				AEC6F60D18999E5200A40AA8 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AEC6F5D718999E5200A40AA8 /* Floppy Fish */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEC6F61418999E5200A40AA8 /* Build configuration list for PBXNativeTarget "Floppy Fish" */;
+			buildPhases = (
+				AEC6F5D418999E5200A40AA8 /* Sources */,
+				AEC6F5D518999E5200A40AA8 /* Frameworks */,
+				AEC6F5D618999E5200A40AA8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Floppy Fish";
+			productName = "Floppy Fish";
+			productReference = AEC6F5D818999E5200A40AA8 /* Floppy Fish.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AEC6F60218999E5200A40AA8 /* Floppy FishTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEC6F61718999E5200A40AA8 /* Build configuration list for PBXNativeTarget "Floppy FishTests" */;
+			buildPhases = (
+				AEC6F5FF18999E5200A40AA8 /* Sources */,
+				AEC6F60018999E5200A40AA8 /* Frameworks */,
+				AEC6F60118999E5200A40AA8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AEC6F60918999E5200A40AA8 /* PBXTargetDependency */,
+			);
+			name = "Floppy FishTests";
+			productName = "Floppy FishTests";
+			productReference = AEC6F60318999E5200A40AA8 /* Floppy FishTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AEC6F5D018999E5200A40AA8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FPY;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Andrew Paterson";
+				TargetAttributes = {
+					AEC6F60218999E5200A40AA8 = {
+						TestTargetID = AEC6F5D718999E5200A40AA8;
+					};
+				};
+			};
+			buildConfigurationList = AEC6F5D318999E5200A40AA8 /* Build configuration list for PBXProject "Floppy Fish" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AEC6F5CF18999E5200A40AA8;
+			productRefGroup = AEC6F5D918999E5200A40AA8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AEC6F5D718999E5200A40AA8 /* Floppy Fish */,
+				AEC6F60218999E5200A40AA8 /* Floppy FishTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AEC6F5D618999E5200A40AA8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEC6F5FC18999E5200A40AA8 /* Spaceship.png in Resources */,
+				AEC6F5FE18999E5200A40AA8 /* Images.xcassets in Resources */,
+				AEC6F5F418999E5200A40AA8 /* Main_iPad.storyboard in Resources */,
+				AEC6F5F118999E5200A40AA8 /* Main_iPhone.storyboard in Resources */,
+				AEC6F5E818999E5200A40AA8 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEC6F60118999E5200A40AA8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEC6F60F18999E5200A40AA8 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AEC6F5D418999E5200A40AA8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEC6F5EE18999E5200A40AA8 /* FPYAppDelegate.m in Sources */,
+				AEC6F5F718999E5200A40AA8 /* FPYViewController.m in Sources */,
+				AEC6F5FA18999E5200A40AA8 /* FPYMyScene.m in Sources */,
+				AEC6F5EA18999E5200A40AA8 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEC6F5FF18999E5200A40AA8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEC6F61118999E5200A40AA8 /* Floppy_FishTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AEC6F60918999E5200A40AA8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AEC6F5D718999E5200A40AA8 /* Floppy Fish */;
+			targetProxy = AEC6F60818999E5200A40AA8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AEC6F5E618999E5200A40AA8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEC6F5E718999E5200A40AA8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AEC6F5EF18999E5200A40AA8 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEC6F5F018999E5200A40AA8 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		AEC6F5F218999E5200A40AA8 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEC6F5F318999E5200A40AA8 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		AEC6F60D18999E5200A40AA8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEC6F60E18999E5200A40AA8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AEC6F61218999E5200A40AA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AEC6F61318999E5200A40AA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AEC6F61518999E5200A40AA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Floppy Fish/Floppy Fish-Prefix.pch";
+				INFOPLIST_FILE = "Floppy Fish/Floppy Fish-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AEC6F61618999E5200A40AA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Floppy Fish/Floppy Fish-Prefix.pch";
+				INFOPLIST_FILE = "Floppy Fish/Floppy Fish-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AEC6F61818999E5200A40AA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Floppy Fish.app/Floppy Fish";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Floppy Fish/Floppy Fish-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Floppy FishTests/Floppy FishTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		AEC6F61918999E5200A40AA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Floppy Fish.app/Floppy Fish";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Floppy Fish/Floppy Fish-Prefix.pch";
+				INFOPLIST_FILE = "Floppy FishTests/Floppy FishTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AEC6F5D318999E5200A40AA8 /* Build configuration list for PBXProject "Floppy Fish" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEC6F61218999E5200A40AA8 /* Debug */,
+				AEC6F61318999E5200A40AA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AEC6F61418999E5200A40AA8 /* Build configuration list for PBXNativeTarget "Floppy Fish" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEC6F61518999E5200A40AA8 /* Debug */,
+				AEC6F61618999E5200A40AA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AEC6F61718999E5200A40AA8 /* Build configuration list for PBXNativeTarget "Floppy FishTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEC6F61818999E5200A40AA8 /* Debug */,
+				AEC6F61918999E5200A40AA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AEC6F5D018999E5200A40AA8 /* Project object */;
+}
