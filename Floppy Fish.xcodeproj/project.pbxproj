@@ -18,13 +18,13 @@
 		AEC6F5F418999E5200A40AA8 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEC6F5F218999E5200A40AA8 /* Main_iPad.storyboard */; };
 		AEC6F5F718999E5200A40AA8 /* FPYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC6F5F618999E5200A40AA8 /* FPYViewController.m */; };
 		AEC6F5FA18999E5200A40AA8 /* FPYMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC6F5F918999E5200A40AA8 /* FPYMyScene.m */; };
-		AEC6F5FC18999E5200A40AA8 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = AEC6F5FB18999E5200A40AA8 /* Spaceship.png */; };
 		AEC6F5FE18999E5200A40AA8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEC6F5FD18999E5200A40AA8 /* Images.xcassets */; };
 		AEC6F60518999E5200A40AA8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC6F60418999E5200A40AA8 /* XCTest.framework */; };
 		AEC6F60618999E5200A40AA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC6F5DB18999E5200A40AA8 /* Foundation.framework */; };
 		AEC6F60718999E5200A40AA8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC6F5DF18999E5200A40AA8 /* UIKit.framework */; };
 		AEC6F60F18999E5200A40AA8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEC6F60D18999E5200A40AA8 /* InfoPlist.strings */; };
 		AEC6F61118999E5200A40AA8 /* Floppy_FishTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC6F61018999E5200A40AA8 /* Floppy_FishTests.m */; };
+		AEC6F61C18999E8E00A40AA8 /* SKBButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC6F61B18999E8E00A40AA8 /* SKBButtonNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,13 +55,14 @@
 		AEC6F5F618999E5200A40AA8 /* FPYViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPYViewController.m; sourceTree = "<group>"; };
 		AEC6F5F818999E5200A40AA8 /* FPYMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPYMyScene.h; sourceTree = "<group>"; };
 		AEC6F5F918999E5200A40AA8 /* FPYMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPYMyScene.m; sourceTree = "<group>"; };
-		AEC6F5FB18999E5200A40AA8 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		AEC6F5FD18999E5200A40AA8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AEC6F60318999E5200A40AA8 /* Floppy FishTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Floppy FishTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC6F60418999E5200A40AA8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		AEC6F60C18999E5200A40AA8 /* Floppy FishTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Floppy FishTests-Info.plist"; sourceTree = "<group>"; };
 		AEC6F60E18999E5200A40AA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AEC6F61018999E5200A40AA8 /* Floppy_FishTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Floppy_FishTests.m; sourceTree = "<group>"; };
+		AEC6F61A18999E8E00A40AA8 /* SKBButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKBButtonNode.h; path = ../SKBButtonNode.h; sourceTree = "<group>"; };
+		AEC6F61B18999E8E00A40AA8 /* SKBButtonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKBButtonNode.m; path = ../SKBButtonNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,13 +126,10 @@
 			children = (
 				AEC6F5EC18999E5200A40AA8 /* FPYAppDelegate.h */,
 				AEC6F5ED18999E5200A40AA8 /* FPYAppDelegate.m */,
-				AEC6F5EF18999E5200A40AA8 /* Main_iPhone.storyboard */,
-				AEC6F5F218999E5200A40AA8 /* Main_iPad.storyboard */,
-				AEC6F5F518999E5200A40AA8 /* FPYViewController.h */,
-				AEC6F5F618999E5200A40AA8 /* FPYViewController.m */,
-				AEC6F5F818999E5200A40AA8 /* FPYMyScene.h */,
-				AEC6F5F918999E5200A40AA8 /* FPYMyScene.m */,
-				AEC6F5FB18999E5200A40AA8 /* Spaceship.png */,
+				AEC6F62018999EB800A40AA8 /* StoryBoards */,
+				AEC6F61F18999EAF00A40AA8 /* View Controllers */,
+				AEC6F61E18999EA800A40AA8 /* Scenes */,
+				AEC6F61D18999EA000A40AA8 /* Helper Classes */,
 				AEC6F5FD18999E5200A40AA8 /* Images.xcassets */,
 				AEC6F5E418999E5200A40AA8 /* Supporting Files */,
 			);
@@ -165,6 +163,42 @@
 				AEC6F60D18999E5200A40AA8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AEC6F61D18999EA000A40AA8 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AEC6F61A18999E8E00A40AA8 /* SKBButtonNode.h */,
+				AEC6F61B18999E8E00A40AA8 /* SKBButtonNode.m */,
+			);
+			name = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		AEC6F61E18999EA800A40AA8 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				AEC6F5F818999E5200A40AA8 /* FPYMyScene.h */,
+				AEC6F5F918999E5200A40AA8 /* FPYMyScene.m */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		AEC6F61F18999EAF00A40AA8 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AEC6F5F518999E5200A40AA8 /* FPYViewController.h */,
+				AEC6F5F618999E5200A40AA8 /* FPYViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		AEC6F62018999EB800A40AA8 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				AEC6F5EF18999E5200A40AA8 /* Main_iPhone.storyboard */,
+				AEC6F5F218999E5200A40AA8 /* Main_iPad.storyboard */,
+			);
+			name = StoryBoards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +249,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Andrew Paterson";
 				TargetAttributes = {
+					AEC6F5D718999E5200A40AA8 = {
+						DevelopmentTeam = HEFSF24EZX;
+					};
 					AEC6F60218999E5200A40AA8 = {
 						TestTargetID = AEC6F5D718999E5200A40AA8;
 					};
@@ -244,7 +281,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEC6F5FC18999E5200A40AA8 /* Spaceship.png in Resources */,
 				AEC6F5FE18999E5200A40AA8 /* Images.xcassets in Resources */,
 				AEC6F5F418999E5200A40AA8 /* Main_iPad.storyboard in Resources */,
 				AEC6F5F118999E5200A40AA8 /* Main_iPhone.storyboard in Resources */,
@@ -270,6 +306,7 @@
 				AEC6F5EE18999E5200A40AA8 /* FPYAppDelegate.m in Sources */,
 				AEC6F5F718999E5200A40AA8 /* FPYViewController.m in Sources */,
 				AEC6F5FA18999E5200A40AA8 /* FPYMyScene.m in Sources */,
+				AEC6F61C18999E8E00A40AA8 /* SKBButtonNode.m in Sources */,
 				AEC6F5EA18999E5200A40AA8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,9 +444,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Floppy Fish/Floppy Fish-Prefix.pch";
 				INFOPLIST_FILE = "Floppy Fish/Floppy Fish-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
@@ -421,9 +460,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Floppy Fish/Floppy Fish-Prefix.pch";
 				INFOPLIST_FILE = "Floppy Fish/Floppy Fish-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
