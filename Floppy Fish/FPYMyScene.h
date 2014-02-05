@@ -7,7 +7,8 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+@import GameKit;
 
-@interface FPYMyScene : SKScene
+@interface FPYMyScene : SKScene <GKGameCenterControllerDelegate, SKPhysicsContactDelegate>
 
 @end

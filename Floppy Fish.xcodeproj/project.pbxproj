@@ -25,6 +25,8 @@
 		AEC6F60F18999E5200A40AA8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEC6F60D18999E5200A40AA8 /* InfoPlist.strings */; };
 		AEC6F61118999E5200A40AA8 /* Floppy_FishTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC6F61018999E5200A40AA8 /* Floppy_FishTests.m */; };
 		AEC6F61C18999E8E00A40AA8 /* SKBButtonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC6F61B18999E8E00A40AA8 /* SKBButtonNode.m */; };
+		AEC6F6231899B1ED00A40AA8 /* FPYPlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC6F6221899B1ED00A40AA8 /* FPYPlayScene.m */; };
+		AED5246618A02D8800A0D6E0 /* FPYScoreFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = AED5246518A02D8800A0D6E0 /* FPYScoreFormatter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,10 @@
 		AEC6F61018999E5200A40AA8 /* Floppy_FishTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Floppy_FishTests.m; sourceTree = "<group>"; };
 		AEC6F61A18999E8E00A40AA8 /* SKBButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKBButtonNode.h; path = ../SKBButtonNode.h; sourceTree = "<group>"; };
 		AEC6F61B18999E8E00A40AA8 /* SKBButtonNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKBButtonNode.m; path = ../SKBButtonNode.m; sourceTree = "<group>"; };
+		AEC6F6211899B1ED00A40AA8 /* FPYPlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPYPlayScene.h; sourceTree = "<group>"; };
+		AEC6F6221899B1ED00A40AA8 /* FPYPlayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPYPlayScene.m; sourceTree = "<group>"; };
+		AED5246418A02D8800A0D6E0 /* FPYScoreFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPYScoreFormatter.h; sourceTree = "<group>"; };
+		AED5246518A02D8800A0D6E0 /* FPYScoreFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPYScoreFormatter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +174,8 @@
 		AEC6F61D18999EA000A40AA8 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
+				AED5246418A02D8800A0D6E0 /* FPYScoreFormatter.h */,
+				AED5246518A02D8800A0D6E0 /* FPYScoreFormatter.m */,
 				AEC6F61A18999E8E00A40AA8 /* SKBButtonNode.h */,
 				AEC6F61B18999E8E00A40AA8 /* SKBButtonNode.m */,
 			);
@@ -179,6 +187,8 @@
 			children = (
 				AEC6F5F818999E5200A40AA8 /* FPYMyScene.h */,
 				AEC6F5F918999E5200A40AA8 /* FPYMyScene.m */,
+				AEC6F6211899B1ED00A40AA8 /* FPYPlayScene.h */,
+				AEC6F6221899B1ED00A40AA8 /* FPYPlayScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -303,8 +313,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEC6F6231899B1ED00A40AA8 /* FPYPlayScene.m in Sources */,
 				AEC6F5EE18999E5200A40AA8 /* FPYAppDelegate.m in Sources */,
 				AEC6F5F718999E5200A40AA8 /* FPYViewController.m in Sources */,
+				AED5246618A02D8800A0D6E0 /* FPYScoreFormatter.m in Sources */,
 				AEC6F5FA18999E5200A40AA8 /* FPYMyScene.m in Sources */,
 				AEC6F61C18999E8E00A40AA8 /* SKBButtonNode.m in Sources */,
 				AEC6F5EA18999E5200A40AA8 /* main.m in Sources */,
@@ -532,6 +544,7 @@
 				AEC6F61618999E5200A40AA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AEC6F61718999E5200A40AA8 /* Build configuration list for PBXNativeTarget "Floppy FishTests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +553,7 @@
 				AEC6F61918999E5200A40AA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

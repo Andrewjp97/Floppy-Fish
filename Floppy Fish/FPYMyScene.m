@@ -7,17 +7,44 @@
 //
 
 #import "FPYMyScene.h"
+#import "SKBButtonNode.h"
+#import "FPYPlayScene.h"
+@import GameKit;
 
-@implementation FPYMyScene
+
+@interface FPYMyScene ()
+
+@property BOOL contentCreated;
+
+@end
+
+
+@implementation FPYMyScene{
+    float scaleFactor;
+}
+
+#define FLOPPY_FISH_LABEL_IMAGE @"FloppyFishLabel"
+
+
+#pragma mark - Initializer
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
-        
-
+        scaleFactor = 1.0f;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            scaleFactor = 2.0f;
+        }
+        if (!self.contentCreated) {
+            [self createSceneContent];
+            self.contentCreated = YES;
+        }
     }
     return self;
 }
+
+
+#pragma mark - Scene Touch Handling
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
@@ -25,8 +52,145 @@
     [super touchesBegan:touches withEvent:event];
 }
 
+
+#pragma mark - Scene Update Methods
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
 }
 
+
+#pragma mark - Scene Content Creation Manager
+
+- (void)createSceneContent{
+    [self addChild:[self backgroundNode]];
+    [self addChild:[self newFloppyFishLabelNode]];
+        [self addChild:[self newPlayButton]];
+    [self addChild:[self newFish]];
+           [self addChild:[self newScoreButton]];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"bestScore"] integerValue] > 29) {
+        [self addChild:[self newRateButton]];
+    }
+}
+
+
+#pragma mark - Scene Content Creators
+
+- (SKSpriteNode *)newFloppyFishLabelNode{
+    SKSpriteNode *floppyLabelNode = [SKSpriteNode spriteNodeWithImageNamed:FLOPPY_FISH_LABEL_IMAGE];
+    floppyLabelNode.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame) - (60 * scaleFactor));
+    return floppyLabelNode;
+}
+- (SKSpriteNode *)backgroundNode{
+    SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"Background"];
+    bg.anchorPoint = CGPointZero;
+    return bg;
+}
+- (SKBButtonNode *)newPlayButton{
+    UIImage *a = [UIImage imageNamed:@"StartButton_Coral_300x110REZ"];
+    SKTexture *tx = [SKTexture textureWithImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]];
+    SKTexture *tx2 = [SKTexture textureWithImage:[self darkenImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]]];
+    SKBButtonNode *play = [[SKBButtonNode alloc] initWithTextureNormal:tx selected:tx2];
+    play.position = CGPointMake((75 * scaleFactor), (120 * scaleFactor));
+    [play setTouchUpInsideTarget:self action:@selector(play)];
+    return play;
+}
+- (SKBButtonNode *)newScoreButton{
+    UIImage *a = [UIImage imageNamed:@"ScoresButton_Coral_300x110REZ"];
+    SKTexture *tx = [SKTexture textureWithImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]];
+    SKTexture *tx2 = [SKTexture textureWithImage:[self darkenImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]]];
+    SKBButtonNode *play = [[SKBButtonNode alloc] initWithTextureNormal:tx selected:tx2];
+    play.position = CGPointMake((CGRectGetMaxX(self.frame) - (75 * scaleFactor)), (120 * scaleFactor));
+    [play setTouchUpInsideTarget:self action:@selector(scores)];
+    return play;
+}
+- (SKBButtonNode *)newRateButton{
+    UIImage *a = [UIImage imageNamed:@"RateButton_Coral_300x110REZ"];
+    SKTexture *tx = [SKTexture textureWithImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]];
+    SKTexture *tx2 = [SKTexture textureWithImage:[self darkenImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]]];
+    SKBButtonNode *play = [[SKBButtonNode alloc] initWithTextureNormal:tx selected:tx2];
+    play.position = CGPointMake((CGRectGetMaxX(self.frame) - (75 * scaleFactor)), (160 * scaleFactor));
+    [play setTouchUpInsideTarget:self action:@selector(rate)];
+    return play;
+}
+- (SKSpriteNode *)newFish{
+    SKSpriteNode *fish = [SKSpriteNode spriteNodeWithImageNamed:@"fish"];
+    fish.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    return fish;
+}
+- (UIImage *)imageWithImage:(UIImage *)image convertToSize:(CGSize)size {
+        UIGraphicsBeginImageContext(size);
+        [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+        UIImage *destImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return destImage;
+        //return image;
+
+}
+- (UIImage *)darkenImage:(UIImage *)image{
+    CIImage *ref = [CIImage imageWithCGImage:[image CGImage]];
+    CIFilter *darken = [CIFilter filterWithName:@"CIPhotoEffectFade" keysAndValues:kCIInputImageKey, ref, nil];
+        CIContext *context = [CIContext contextWithOptions:Nil];
+    CIImage *outputImage = [darken outputImage];
+
+        CGImageRef cgimg =
+        [context createCGImage:outputImage fromRect:[outputImage extent]];
+        UIImage *newImg = [UIImage imageWithCGImage:cgimg];
+        //UIImage *newImg = [UIImage imageWithCIImage:outputImage];
+        CGImageRelease(cgimg);
+    return newImg;
+}
+#pragma mark - Menu Item Methods
+
+- (void)play{
+        // TODO: Play
+    SKTransition *tr = [SKTransition moveInWithDirection:SKTransitionDirectionRight duration:0.5];
+    FPYPlayScene *scene = [[FPYPlayScene alloc] initWithSize:self.size];
+    [self.view presentScene:scene transition:tr];
+}
+- (void)scores{
+    [self showLeaderboard:@"High_Score"];
+}
+- (void)rate{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http:www.appstore.com/floppyfish"]];
+}
+
+
+#pragma mark - Game Center
+
+- (void) showLeaderboard: (NSString*) leaderboardID
+{
+    dispatch_async(dispatch_queue_create("com.AndrewPaterson.SpacePlatypus.GKViewController", NULL), ^{
+        GKGameCenterViewController *gameCenterController = [[GKGameCenterViewController alloc] init];
+        if (gameCenterController != nil)
+        {
+            gameCenterController.gameCenterDelegate = self;
+            gameCenterController.viewState = GKGameCenterViewControllerStateLeaderboards;
+            [self.view.window.rootViewController presentViewController: gameCenterController animated: YES completion:nil];
+        }
+    });
+
+}
+
+- (void) showAchievements: (NSString*) leaderboardID
+{
+    GKGameCenterViewController *gameCenterController = [[GKGameCenterViewController alloc] init];
+    if (gameCenterController != nil)
+    {
+        gameCenterController.gameCenterDelegate = self;
+        gameCenterController.viewState = GKGameCenterViewControllerStateAchievements;
+        [self.view.window.rootViewController presentViewController: gameCenterController animated: YES completion:nil];
+    }
+}
+- (void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
+{
+    [self.view.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+#pragma mark - Contact Delegate
+
+- (void)didBeginContact:(SKPhysicsContact *)contact{
+    
+}
 @end

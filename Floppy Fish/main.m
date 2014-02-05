@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#import "FPYAppDelegate.h"
+#include "FPYAppDelegate.h"
 
 int main(int argc, char * argv[])
 {

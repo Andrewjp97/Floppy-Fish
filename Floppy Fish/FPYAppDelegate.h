@@ -11,5 +11,5 @@
 @interface FPYAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property BOOL gameCenterEnabled;
 @end

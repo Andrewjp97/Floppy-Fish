@@ -8,6 +8,11 @@
 
 #import "FPYViewController.h"
 #import "FPYMyScene.h"
+#import "FPYAppDelegate.h"
+@import GameKit;
+@interface FPYViewController ()
+@property (strong, nonatomic)NSString *username;
+@end
 
 @implementation FPYViewController
 
@@ -19,7 +24,9 @@
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
-    
+    [self authenticatedPlayer:nil];
+    [self authenticateLocalPlayer];
+
     // Create and configure the scene.
     SKScene * scene = [FPYMyScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
@@ -32,6 +39,30 @@
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
+}
+- (void)disableGameCenter{
+    FPYAppDelegate *ad = [[UIApplication sharedApplication] delegate];
+    ad.gameCenterEnabled = NO;
+}
+- (void)authenticatedPlayer:(GKLocalPlayer *)localPlayer{
+    _username = localPlayer.displayName;
+}
+- (void)authenticateLocalPlayer{
+    dispatch_async(dispatch_queue_create("com.AndrewPaterson.SpacePlatypus.AuthenticateLocalPlayer", NULL), ^{
+        GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+        localPlayer.authenticateHandler = ^(UIViewController *viewController, NSError *error){
+            if (viewController != Nil) {
+                [self presentViewController:viewController animated:YES completion:NULL];
+            }
+            else if ([GKLocalPlayer localPlayer].isAuthenticated){
+                [self authenticatedPlayer:[GKLocalPlayer localPlayer]];
+            }
+            else {
+                [self disableGameCenter];
+            }
+        };
+    });
+    
 }
 
 @end
