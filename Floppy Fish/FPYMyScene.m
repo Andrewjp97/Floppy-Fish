@@ -9,12 +9,14 @@
 #import "FPYMyScene.h"
 #import "SKBButtonNode.h"
 #import "FPYPlayScene.h"
+#import "FPYScoreFormatter.h"
 @import GameKit;
 
 
 @interface FPYMyScene ()
 
 @property BOOL contentCreated;
+@property (strong, nonatomic)SKSpriteNode *bar;
 
 @end
 
@@ -56,6 +58,9 @@
 #pragma mark - Scene Update Methods
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    if (self.bar.position.x <= 0) {
+        [self addAndAnimateBar];
+    }
 }
 
 
@@ -70,6 +75,25 @@
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"bestScore"] integerValue] > 29) {
         [self addChild:[self newRateButton]];
     }
+    [self addAndAnimateBar];
+    NSMutableArray *arr = [[[NSUserDefaults standardUserDefaults] objectForKey:@"scores"] mutableCopy];
+    float average = 0;
+    float count = 0;
+    for (NSNumber *num in arr) {
+        count++;
+        average += [num floatValue];
+    }
+    SKLabelNode *label = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+    label.fontSize = 26;
+    label.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
+    label.position = CGPointMake(CGRectGetMaxX(self.frame), 30 * scaleFactor);
+    average = average/count;
+    label.text = [NSString stringWithFormat:@"Average: %0.2f", average];
+    if ([label.text  isEqual: @"Average: nan"]) {
+        label.text = @"Average: 0";
+    }
+    NSLog(@"%0.2f", average);
+    [self addChild:label];
 }
 
 
@@ -90,7 +114,7 @@
     SKTexture *tx = [SKTexture textureWithImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]];
     SKTexture *tx2 = [SKTexture textureWithImage:[self darkenImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]]];
     SKBButtonNode *play = [[SKBButtonNode alloc] initWithTextureNormal:tx selected:tx2];
-    play.position = CGPointMake((75 * scaleFactor), (120 * scaleFactor));
+    play.position = CGPointMake((75 * scaleFactor), (140 * scaleFactor));
     [play setTouchUpInsideTarget:self action:@selector(play)];
     return play;
 }
@@ -99,7 +123,7 @@
     SKTexture *tx = [SKTexture textureWithImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]];
     SKTexture *tx2 = [SKTexture textureWithImage:[self darkenImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]]];
     SKBButtonNode *play = [[SKBButtonNode alloc] initWithTextureNormal:tx selected:tx2];
-    play.position = CGPointMake((CGRectGetMaxX(self.frame) - (75 * scaleFactor)), (120 * scaleFactor));
+    play.position = CGPointMake((CGRectGetMaxX(self.frame) - (75 * scaleFactor)), (140 * scaleFactor));
     [play setTouchUpInsideTarget:self action:@selector(scores)];
     return play;
 }
@@ -108,13 +132,15 @@
     SKTexture *tx = [SKTexture textureWithImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]];
     SKTexture *tx2 = [SKTexture textureWithImage:[self darkenImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]]];
     SKBButtonNode *play = [[SKBButtonNode alloc] initWithTextureNormal:tx selected:tx2];
-    play.position = CGPointMake((CGRectGetMaxX(self.frame) - (75 * scaleFactor)), (160 * scaleFactor));
+    play.position = CGPointMake((CGRectGetMaxX(self.frame) - (75 * scaleFactor)), (180 * scaleFactor));
     [play setTouchUpInsideTarget:self action:@selector(rate)];
     return play;
 }
 - (SKSpriteNode *)newFish{
     SKSpriteNode *fish = [SKSpriteNode spriteNodeWithImageNamed:@"fish"];
     fish.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    SKAction *changeImages = [SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"fishTwo"] ,[SKTexture textureWithImageNamed:@"fish"]] timePerFrame:0.25];
+    [fish runAction:[SKAction repeatActionForever:changeImages]];
     return fish;
 }
 - (UIImage *)imageWithImage:(UIImage *)image convertToSize:(CGSize)size {
@@ -139,6 +165,38 @@
         CGImageRelease(cgimg);
     return newImg;
 }
+- (void)addAndAnimateBar{
+    if (self.bar) {
+        UIImage *bar = [UIImage imageNamed:@"bar"];
+        bar = [self imageWithImage:bar convertToSize:CGSizeMake(bar.size.width / (2/scaleFactor), 12.5 * scaleFactor)];
+        SKSpriteNode *barNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:bar]];
+        barNode.position = CGPointMake(bar.size.width - 5, 80 * scaleFactor);
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            barNode.position = CGPointMake(bar.size.width -10, 100 * scaleFactor);
+        }
+        [self addChild:barNode];
+        self.bar.zPosition = 30;
+        self.bar = barNode;
+        self.bar.name = @"bar";
+        SKAction *move = [SKAction moveByX:-1.5 * scaleFactor y:0.0 duration:0.01];
+        [self.bar runAction:[SKAction repeatActionForever:move]];
+    }
+    else{
+        UIImage *bar = [UIImage imageNamed:@"bar"];
+        bar = [self imageWithImage:bar convertToSize:CGSizeMake(bar.size.width / (2/scaleFactor), 12.5 * scaleFactor)];
+        SKSpriteNode *barNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:bar]];
+        barNode.position = CGPointMake(0 + (bar.size.width / 2), 80 * scaleFactor);
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            barNode.position = CGPointMake(bar.size.width / 2, 100 * scaleFactor);
+        }
+        [self addChild:barNode];
+        self.bar = barNode;
+        self.bar.zPosition = 30;
+        self.bar.name = @"bar";
+        SKAction *move = [SKAction moveByX:-1.5 * scaleFactor y:0.0 duration:0.01];
+        [self.bar runAction:[SKAction repeatActionForever:move]];
+    }
+}
 #pragma mark - Menu Item Methods
 
 - (void)play{
@@ -148,10 +206,10 @@
     [self.view presentScene:scene transition:tr];
 }
 - (void)scores{
-    [self showLeaderboard:@"High_Score"];
+    [self showLeaderboard:@"High_Score_Two"];
 }
 - (void)rate{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http:www.appstore.com/floppyfish"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http:www.appstore.com/fishdash"]];
 }
 
 

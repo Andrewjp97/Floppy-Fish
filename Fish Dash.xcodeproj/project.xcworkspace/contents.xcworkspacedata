@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Floppy Fish.xcodeproj">
+      location = "self:Fish Dash.xcodeproj">
    </FileRef>
 </Workspace>

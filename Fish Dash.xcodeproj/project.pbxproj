@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE30896918A4748B00705152 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE30896818A4748B00705152 /* Crashlytics.framework */; };
+		AE308A3618A4764300705152 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE308A3518A4764300705152 /* AdSupport.framework */; };
+		AE308A3818A4764B00705152 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE308A3718A4764B00705152 /* CoreData.framework */; };
+		AE308A3A18A4765500705152 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE308A3918A4765500705152 /* SystemConfiguration.framework */; };
+		AE308A3C18A4765D00705152 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE308A3B18A4765D00705152 /* libz.dylib */; };
 		AEC6F5DC18999E5200A40AA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC6F5DB18999E5200A40AA8 /* Foundation.framework */; };
 		AEC6F5DE18999E5200A40AA8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC6F5DD18999E5200A40AA8 /* CoreGraphics.framework */; };
 		AEC6F5E018999E5200A40AA8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC6F5DF18999E5200A40AA8 /* UIKit.framework */; };
@@ -40,15 +45,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AEC6F5D818999E5200A40AA8 /* Floppy Fish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Floppy Fish.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE30896818A4748B00705152 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		AE308A3518A4764300705152 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		AE308A3718A4764B00705152 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		AE308A3918A4765500705152 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AE308A3B18A4765D00705152 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		AEC6F5D818999E5200A40AA8 /* Fish Dash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fish Dash.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC6F5DB18999E5200A40AA8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AEC6F5DD18999E5200A40AA8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		AEC6F5DF18999E5200A40AA8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AEC6F5E118999E5200A40AA8 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
-		AEC6F5E518999E5200A40AA8 /* Floppy Fish-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Floppy Fish-Info.plist"; sourceTree = "<group>"; };
+		AEC6F5E518999E5200A40AA8 /* Fish Dash-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fish Dash-Info.plist"; sourceTree = "<group>"; };
 		AEC6F5E718999E5200A40AA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AEC6F5E918999E5200A40AA8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AEC6F5EB18999E5200A40AA8 /* Floppy Fish-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Floppy Fish-Prefix.pch"; sourceTree = "<group>"; };
+		AEC6F5EB18999E5200A40AA8 /* Fish Dash-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fish Dash-Prefix.pch"; sourceTree = "<group>"; };
 		AEC6F5EC18999E5200A40AA8 /* FPYAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPYAppDelegate.h; sourceTree = "<group>"; };
 		AEC6F5ED18999E5200A40AA8 /* FPYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPYAppDelegate.m; sourceTree = "<group>"; };
 		AEC6F5F018999E5200A40AA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
@@ -58,9 +68,9 @@
 		AEC6F5F818999E5200A40AA8 /* FPYMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPYMyScene.h; sourceTree = "<group>"; };
 		AEC6F5F918999E5200A40AA8 /* FPYMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPYMyScene.m; sourceTree = "<group>"; };
 		AEC6F5FD18999E5200A40AA8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		AEC6F60318999E5200A40AA8 /* Floppy FishTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Floppy FishTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEC6F60318999E5200A40AA8 /* Fish DashTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fish DashTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC6F60418999E5200A40AA8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		AEC6F60C18999E5200A40AA8 /* Floppy FishTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Floppy FishTests-Info.plist"; sourceTree = "<group>"; };
+		AEC6F60C18999E5200A40AA8 /* Fish DashTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fish DashTests-Info.plist"; sourceTree = "<group>"; };
 		AEC6F60E18999E5200A40AA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AEC6F61018999E5200A40AA8 /* Floppy_FishTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Floppy_FishTests.m; sourceTree = "<group>"; };
 		AEC6F61A18999E8E00A40AA8 /* SKBButtonNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKBButtonNode.h; path = ../SKBButtonNode.h; sourceTree = "<group>"; };
@@ -76,7 +86,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE308A3C18A4765D00705152 /* libz.dylib in Frameworks */,
+				AE308A3A18A4765500705152 /* SystemConfiguration.framework in Frameworks */,
+				AE308A3818A4764B00705152 /* CoreData.framework in Frameworks */,
+				AE308A3618A4764300705152 /* AdSupport.framework in Frameworks */,
 				AEC6F5DE18999E5200A40AA8 /* CoreGraphics.framework in Frameworks */,
+				AE30896918A4748B00705152 /* Crashlytics.framework in Frameworks */,
 				AEC6F5E018999E5200A40AA8 /* UIKit.framework in Frameworks */,
 				AEC6F5E218999E5200A40AA8 /* SpriteKit.framework in Frameworks */,
 				AEC6F5DC18999E5200A40AA8 /* Foundation.framework in Frameworks */,
@@ -109,8 +124,8 @@
 		AEC6F5D918999E5200A40AA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AEC6F5D818999E5200A40AA8 /* Floppy Fish.app */,
-				AEC6F60318999E5200A40AA8 /* Floppy FishTests.xctest */,
+				AEC6F5D818999E5200A40AA8 /* Fish Dash.app */,
+				AEC6F60318999E5200A40AA8 /* Fish DashTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,6 +133,11 @@
 		AEC6F5DA18999E5200A40AA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE308A3B18A4765D00705152 /* libz.dylib */,
+				AE308A3918A4765500705152 /* SystemConfiguration.framework */,
+				AE308A3718A4764B00705152 /* CoreData.framework */,
+				AE308A3518A4764300705152 /* AdSupport.framework */,
+				AE30896818A4748B00705152 /* Crashlytics.framework */,
 				AEC6F5DB18999E5200A40AA8 /* Foundation.framework */,
 				AEC6F5DD18999E5200A40AA8 /* CoreGraphics.framework */,
 				AEC6F5DF18999E5200A40AA8 /* UIKit.framework */,
@@ -145,10 +165,10 @@
 		AEC6F5E418999E5200A40AA8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AEC6F5E518999E5200A40AA8 /* Floppy Fish-Info.plist */,
+				AEC6F5E518999E5200A40AA8 /* Fish Dash-Info.plist */,
 				AEC6F5E618999E5200A40AA8 /* InfoPlist.strings */,
 				AEC6F5E918999E5200A40AA8 /* main.m */,
-				AEC6F5EB18999E5200A40AA8 /* Floppy Fish-Prefix.pch */,
+				AEC6F5EB18999E5200A40AA8 /* Fish Dash-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -165,7 +185,7 @@
 		AEC6F60B18999E5200A40AA8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AEC6F60C18999E5200A40AA8 /* Floppy FishTests-Info.plist */,
+				AEC6F60C18999E5200A40AA8 /* Fish DashTests-Info.plist */,
 				AEC6F60D18999E5200A40AA8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -214,26 +234,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AEC6F5D718999E5200A40AA8 /* Floppy Fish */ = {
+		AEC6F5D718999E5200A40AA8 /* Fish Dash */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AEC6F61418999E5200A40AA8 /* Build configuration list for PBXNativeTarget "Floppy Fish" */;
+			buildConfigurationList = AEC6F61418999E5200A40AA8 /* Build configuration list for PBXNativeTarget "Fish Dash" */;
 			buildPhases = (
 				AEC6F5D418999E5200A40AA8 /* Sources */,
 				AEC6F5D518999E5200A40AA8 /* Frameworks */,
 				AEC6F5D618999E5200A40AA8 /* Resources */,
+				AE30896718A4747D00705152 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Floppy Fish";
+			name = "Fish Dash";
 			productName = "Floppy Fish";
-			productReference = AEC6F5D818999E5200A40AA8 /* Floppy Fish.app */;
+			productReference = AEC6F5D818999E5200A40AA8 /* Fish Dash.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AEC6F60218999E5200A40AA8 /* Floppy FishTests */ = {
+		AEC6F60218999E5200A40AA8 /* Fish DashTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AEC6F61718999E5200A40AA8 /* Build configuration list for PBXNativeTarget "Floppy FishTests" */;
+			buildConfigurationList = AEC6F61718999E5200A40AA8 /* Build configuration list for PBXNativeTarget "Fish DashTests" */;
 			buildPhases = (
 				AEC6F5FF18999E5200A40AA8 /* Sources */,
 				AEC6F60018999E5200A40AA8 /* Frameworks */,
@@ -244,9 +265,9 @@
 			dependencies = (
 				AEC6F60918999E5200A40AA8 /* PBXTargetDependency */,
 			);
-			name = "Floppy FishTests";
+			name = "Fish DashTests";
 			productName = "Floppy FishTests";
-			productReference = AEC6F60318999E5200A40AA8 /* Floppy FishTests.xctest */;
+			productReference = AEC6F60318999E5200A40AA8 /* Fish DashTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -261,13 +282,18 @@
 				TargetAttributes = {
 					AEC6F5D718999E5200A40AA8 = {
 						DevelopmentTeam = HEFSF24EZX;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+						};
 					};
 					AEC6F60218999E5200A40AA8 = {
 						TestTargetID = AEC6F5D718999E5200A40AA8;
 					};
 				};
 			};
-			buildConfigurationList = AEC6F5D318999E5200A40AA8 /* Build configuration list for PBXProject "Floppy Fish" */;
+			buildConfigurationList = AEC6F5D318999E5200A40AA8 /* Build configuration list for PBXProject "Fish Dash" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -280,8 +306,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AEC6F5D718999E5200A40AA8 /* Floppy Fish */,
-				AEC6F60218999E5200A40AA8 /* Floppy FishTests */,
+				AEC6F5D718999E5200A40AA8 /* Fish Dash */,
+				AEC6F60218999E5200A40AA8 /* Fish DashTests */,
 			);
 		};
 /* End PBXProject section */
@@ -307,6 +333,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AE30896718A4747D00705152 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 1c6d125161cfd6155af441bc83d21a64632d815c 0bd63c3e7bccadb5a03117ce104a04e0040a7858af6c8bc5824aed3b65726fbd";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AEC6F5D418999E5200A40AA8 /* Sources */ = {
@@ -336,7 +378,7 @@
 /* Begin PBXTargetDependency section */
 		AEC6F60918999E5200A40AA8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AEC6F5D718999E5200A40AA8 /* Floppy Fish */;
+			target = AEC6F5D718999E5200A40AA8 /* Fish Dash */;
 			targetProxy = AEC6F60818999E5200A40AA8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -457,11 +499,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/andrewpaterson/Dropbox/Coding/Floppy\\ Fish",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Floppy Fish/Floppy Fish-Prefix.pch";
-				INFOPLIST_FILE = "Floppy Fish/Floppy Fish-Info.plist";
+				GCC_PREFIX_HEADER = "Floppy Fish/Fish Dash-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Floppy Fish/Fish Dash-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/andrewpaterson/Dropbox/Coding/Floppy\\ Fish/GoogleAnalyticsServicesiOS_3.03a",
+				);
+				PRODUCT_NAME = "Fish Dash";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -473,11 +525,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/andrewpaterson/Dropbox/Coding/Floppy\\ Fish",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Floppy Fish/Floppy Fish-Prefix.pch";
-				INFOPLIST_FILE = "Floppy Fish/Floppy Fish-Info.plist";
+				GCC_PREFIX_HEADER = "Floppy Fish/Fish Dash-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Floppy Fish/Fish Dash-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/andrewpaterson/Dropbox/Coding/Floppy\\ Fish/GoogleAnalyticsServicesiOS_3.03a",
+				);
+				PRODUCT_NAME = "Fish Dash";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -499,8 +561,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Floppy FishTests/Floppy FishTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Floppy FishTests/Fish DashTests-Info.plist";
+				PRODUCT_NAME = "Fish DashTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -518,8 +580,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Floppy Fish/Floppy Fish-Prefix.pch";
-				INFOPLIST_FILE = "Floppy FishTests/Floppy FishTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Floppy FishTests/Fish DashTests-Info.plist";
+				PRODUCT_NAME = "Fish DashTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -528,7 +590,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AEC6F5D318999E5200A40AA8 /* Build configuration list for PBXProject "Floppy Fish" */ = {
+		AEC6F5D318999E5200A40AA8 /* Build configuration list for PBXProject "Fish Dash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AEC6F61218999E5200A40AA8 /* Debug */,
@@ -537,7 +599,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AEC6F61418999E5200A40AA8 /* Build configuration list for PBXNativeTarget "Floppy Fish" */ = {
+		AEC6F61418999E5200A40AA8 /* Build configuration list for PBXNativeTarget "Fish Dash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AEC6F61518999E5200A40AA8 /* Debug */,
@@ -546,7 +608,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AEC6F61718999E5200A40AA8 /* Build configuration list for PBXNativeTarget "Floppy FishTests" */ = {
+		AEC6F61718999E5200A40AA8 /* Build configuration list for PBXNativeTarget "Fish DashTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AEC6F61818999E5200A40AA8 /* Debug */,

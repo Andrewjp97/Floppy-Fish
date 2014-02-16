@@ -22,6 +22,7 @@
 @property (strong, nonatomic)NSArray *leaderboards;
 @property(nonatomic, retain) NSMutableDictionary *achievementsDictionary;
 @property (nonatomic, assign)int bestScore;
+@property (nonatomic, assign)SKSpriteNode *bar;
 @end
 
 @implementation FPYPlayScene{
@@ -76,26 +77,47 @@ static const uint32_t pipeCategory = 0x1 << 1;
 - (void)update:(NSTimeInterval)currentTime{
     if (self.started && self.touching) {
         if (self.fish.position.y > (100 * scaleFactor)) {
-        self.fish.position = CGPointMake(self.fish.position.x, self.fish.position.y - (3 * scaleFactor));
+        self.fish.position = CGPointMake(self.fish.position.x, self.fish.position.y - (3.2 * scaleFactor));
         }
     }
     else if(self.started && !self.touching) {
         if (self.fish.position.y < CGRectGetMaxY(self.frame) - 30 * scaleFactor) {
-        self.fish.position = CGPointMake(self.fish.position.x, self.fish.position.y + (3 * scaleFactor));
+        self.fish.position = CGPointMake(self.fish.position.x, self.fish.position.y + (3.2 * scaleFactor));
         }
     }
     if (self.started) {
+
+
         [self enumerateChildNodesWithName:@"pipeUp" usingBlock:^(SKNode *node, BOOL *stop) {
                 //TODO: fill in block
-            if ((self.started) && ((node.position.x > self.fish.position.x - 2) && (node.position.x < self.fish.position.x + 2))){
+            if ((self.started) && ((node.position.x > self.fish.position.x - (2 * scaleFactor) && (node.position.x < self.fish.position.x + (2 * scaleFactor))))){
                 self.score += 1;
+                NSLog(@"%d", self.score);
+                if ([self childNodeWithName:@"score"]) {
+
+
+                [self removeChildrenInArray:@[[self childNodeWithName:@"score"]]];
+                SKSpriteNode *score = [[FPYScoreFormatter sharedFormatter] nodeForScore:self.score scaleFactor:scaleFactor];
+                score.position = CGPointMake(CGRectGetMidX(self.frame) - (50 * scaleFactor), CGRectGetMaxY(self.frame) -(50 * scaleFactor));
+                score.zPosition = 90;
+                score.name = @"score";
+                [self addChild:score];
+                }
+                else{
+
+                    SKSpriteNode *score = [[FPYScoreFormatter sharedFormatter] nodeForScore:self.score scaleFactor:scaleFactor];
+                    score.position = CGPointMake(CGRectGetMidX(self.frame) - (50 * scaleFactor), CGRectGetMaxY(self.frame) -(50 * scaleFactor));
+                    score.name = @"score";
+                    score.zPosition = 90;
+                    [self addChild:score];
+                }
                             }
             if (node.position.x < - 100) {
                 [node removeFromParent];
 
             }
             else{
-                node.position = CGPointMake(node.position.x - 3, node.position.y);
+                node.position = CGPointMake(node.position.x - (3 * scaleFactor), node.position.y);
 
             }
         }];
@@ -106,17 +128,37 @@ static const uint32_t pipeCategory = 0x1 << 1;
 
             }
             else{
-                node.position = CGPointMake(node.position.x - 3, node.position.y);
+                node.position = CGPointMake(node.position.x - (3 * scaleFactor), node.position.y);
             }
         }];
 
     }
+    if (!self.finished) {
+        if (self.bar.position.x <= 0) {
+            [self addAndAnimateBar];
+            self.bar.zPosition = 30;
+        }
+    }
+    if (self.finished) {
+        [self.bar removeAllActions];
+        [self enumerateChildNodesWithName:@"bar" usingBlock:^(SKNode *node, BOOL *stop) {
+            [node removeAllActions];
+        }];
+    }
+        //NSLog(@"%f", self.bar.zPosition);
 }
 #pragma mark - Create Content
 - (void)createSceneContent{
     [self addChild:[self backgroundNode]];
     [self addChild:[self newFish]];
     [self addChild:[self newStone]];
+    [self addAndAnimateBar];
+    SKLabelNode *touch = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+    touch.text = @"Touch to swim down";
+    touch.fontSize = 16;
+    touch.position = CGPointMake(self.fish.position.x + (40 * scaleFactor) + (touch.frame.size.width / 2), self.fish.position.y);
+    touch.name = @"label";
+    [self addChild:touch];
 }
 #pragma mark - Nodes
 - (SKSpriteNode *)backgroundNode{
@@ -149,6 +191,7 @@ static const uint32_t pipeCategory = 0x1 << 1;
         CGPathCloseSubpath(path);
         
         sprite.physicsBody = [SKPhysicsBody bodyWithPolygonFromPath:path];
+        CGPathRelease(path);
     }
     else{
         CGFloat offsetX = sprite.frame.size.width * sprite.anchorPoint.x;
@@ -171,12 +214,16 @@ static const uint32_t pipeCategory = 0x1 << 1;
         CGPathCloseSubpath(path);
         
         sprite.physicsBody = [SKPhysicsBody bodyWithPolygonFromPath:path];
+        CGPathRelease(path);
+
             //Generated at http://dazchong.com/spritekit/
     }
     sprite.physicsBody.categoryBitMask = fishCategory;
     sprite.physicsBody.contactTestBitMask = pipeCategory;
     sprite.physicsBody.dynamic = YES;
     sprite.physicsBody.collisionBitMask = pipeCategory;
+    SKAction *changeImages = [SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"fishTwo"] ,[SKTexture textureWithImageNamed:@"fish"]] timePerFrame:0.25];
+    [sprite runAction:[SKAction repeatActionForever:changeImages]];
     self.fish = sprite;
     sprite.physicsBody.usesPreciseCollisionDetection = TRUE;
     sprite.zPosition = 25;
@@ -203,6 +250,38 @@ static const uint32_t pipeCategory = 0x1 << 1;
         //UIImage *newImg = [UIImage imageWithCIImage:outputImage];
     CGImageRelease(cgimg);
     return newImg;
+}
+- (void)addAndAnimateBar{
+    if (self.bar) {
+        UIImage *bar = [UIImage imageNamed:@"bar"];
+        bar = [self imageWithImage:bar convertToSize:CGSizeMake(bar.size.width / (2/scaleFactor), 12.5 * scaleFactor)];
+        SKSpriteNode *barNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:bar]];
+        barNode.position = CGPointMake(bar.size.width - 5, 80 * scaleFactor);
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            barNode.position = CGPointMake(bar.size.width -10, 100 * scaleFactor);
+        }
+        [self addChild:barNode];
+        self.bar.zPosition = 30;
+        self.bar = barNode;
+        self.bar.name = @"bar";
+        SKAction *move = [SKAction moveByX:-1.5 * scaleFactor y:0.0 duration:0.01];
+        [self.bar runAction:[SKAction repeatActionForever:move]];
+    }
+    else{
+        UIImage *bar = [UIImage imageNamed:@"bar"];
+        bar = [self imageWithImage:bar convertToSize:CGSizeMake(bar.size.width / (2/scaleFactor), 12.5 * scaleFactor)];
+        SKSpriteNode *barNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:bar]];
+        barNode.position = CGPointMake(0 + (bar.size.width / 2), 80 * scaleFactor);
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            barNode.position = CGPointMake(bar.size.width / 2, 100 * scaleFactor);
+        }
+        [self addChild:barNode];
+        self.bar = barNode;
+        self.bar.zPosition = 30;
+        self.bar.name = @"bar";
+        SKAction *move = [SKAction moveByX:-1.5 * scaleFactor y:0.0 duration:0.01];
+        [self.bar runAction:[SKAction repeatActionForever:move]];
+    }
 }
 #pragma mark - Pipe Making
 - (SKSpriteNode *)newPipeWithDirection:(FPYPipeDirection)dirction{
@@ -240,6 +319,9 @@ static const uint32_t pipeCategory = 0x1 << 1;
 }
 #pragma mark - Start
 - (void)start{
+    if ([self childNodeWithName:@"label"]) {
+        [self removeChildrenInArray:@[[self childNodeWithName:@"label"]]];
+    }
     if (self.started && !self.finished) {
         CGFloat low = CGRectGetMaxY(self.frame) - (50 * scaleFactor);
         CGFloat high = CGRectGetMaxY(self.frame) - (-75 * scaleFactor);
@@ -249,6 +331,7 @@ static const uint32_t pipeCategory = 0x1 << 1;
         SKSpriteNode * pipeDown = [self newPipeWithDirection:FPYPipeDirectionUp];
         pipeDown.position = CGPointMake(CGRectGetMaxX(self.frame) + 100, (pipeUp.position.y - (100 * scaleFactor)) - pipeDown.size.height);
         [self addChild:pipeDown];
+
 
         [self performSelector:@selector(start) withObject:self afterDelay:1.0];
     }
@@ -264,27 +347,41 @@ static const uint32_t pipeCategory = 0x1 << 1;
     }
     self.fish.physicsBody = nil;
     SKAction *moveToTop = [SKAction moveToY:CGRectGetMaxY(self.frame) -(30 * scaleFactor) duration:1.5];
+    [self.fish removeAllActions];
     [self.fish runAction:moveToTop completion:^{
         self.fish.yScale = -1.0;
         [self presentScore];
         [self addChild:[self newRetryButton]];
         [self addChild:[self newMenuButton]];
     }];
-    [self reportScore:self.score forLeaderboardID:@"High_Score"];
+    [self reportScore:self.score forLeaderboardID:@"High_Score_Two"];
     if (self.score > 99) {
-        [self reportAchievementIdentifier:@"Atlantian_Civilization" percentCompleteIncrease:100.0];
+        [self reportAchievementIdentifier:@"Atlantian_Civilization_Two" percentCompleteIncrease:100.0];
     }
-    if (self.score > 39) {
-        [self reportAchievementIdentifier:@"Mother_of_All_Pearls" percentCompleteIncrease:100.0];
+    if (self.score > 49) {
+        [self reportAchievementIdentifier:@"Mother_of_All_Pearls_Two" percentCompleteIncrease:100.0];
     }
     if (self.score > 29) {
-        [self reportAchievementIdentifier:@"Gold_Doubloon" percentCompleteIncrease:100.0];
+        [self reportAchievementIdentifier:@"Gold_Doubloon_Two" percentCompleteIncrease:100.0];
     }
     if (self.score > 19) {
-        [self reportAchievementIdentifier:@"Silver_Captains_Spoon" percentCompleteIncrease:100.0];
+        [self reportAchievementIdentifier:@"Silver_Captains_Spoon_Two" percentCompleteIncrease:100.0];
     }
     if (self.score > 9) {
-        [self reportAchievementIdentifier:@"Bronze_Ship_Plate" percentCompleteIncrease:100.0];
+        [self reportAchievementIdentifier:@"Bronze_Ship_Plate_Two" percentCompleteIncrease:100.0];
+    }
+    NSMutableArray *arr = [[[NSUserDefaults standardUserDefaults] objectForKey:@"scores"] mutableCopy];
+    if (arr) {
+        [arr addObject:[NSNumber numberWithInteger:self.score]];
+        [[NSUserDefaults standardUserDefaults] setObject:arr forKey:@"scores"];
+    }
+    else{
+        arr = [[NSMutableArray alloc] initWithArray:@[[NSNumber numberWithInteger:self.score]]];
+        [[NSUserDefaults standardUserDefaults] setObject:arr forKey:@"scores"];
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    for (NSNumber *num in arr) {
+        NSLog(@"%@", num);
     }
 }
 - (SKBButtonNode *)newRetryButton{
@@ -292,7 +389,7 @@ static const uint32_t pipeCategory = 0x1 << 1;
     SKTexture *tx = [SKTexture textureWithImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]];
     SKTexture *tx2 = [SKTexture textureWithImage:[self darkenImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]]];
     SKBButtonNode *play = [[SKBButtonNode alloc] initWithTextureNormal:tx selected:tx2];
-    play.position = CGPointMake((75 * scaleFactor), (120 * scaleFactor));
+    play.position = CGPointMake((75 * scaleFactor), (130 * scaleFactor));
     [play setTouchUpInsideTarget:self action:@selector(retry)];
     return play;
 
@@ -300,7 +397,7 @@ static const uint32_t pipeCategory = 0x1 << 1;
 - (SKSpriteNode *)newStone{
     SKSpriteNode *stone = [SKSpriteNode spriteNodeWithImageNamed:@"Stone"];
     stone.anchorPoint = CGPointZero;
-    stone.zPosition = 15;
+    stone.zPosition = 10;
     return stone;
 }
 - (SKBButtonNode *)newMenuButton{
@@ -308,7 +405,7 @@ static const uint32_t pipeCategory = 0x1 << 1;
     SKTexture *tx = [SKTexture textureWithImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]];
     SKTexture *tx2 = [SKTexture textureWithImage:[self darkenImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]]];
     SKBButtonNode *play = [[SKBButtonNode alloc] initWithTextureNormal:tx selected:tx2];
-    play.position = CGPointMake((CGRectGetMaxX(self.frame) - (75 * scaleFactor)), (120 * scaleFactor));
+    play.position = CGPointMake((CGRectGetMaxX(self.frame) - (75 * scaleFactor)), (130 * scaleFactor));
     [play setTouchUpInsideTarget:self action:@selector(menu)];
     return play;
 }
@@ -351,9 +448,9 @@ static const uint32_t pipeCategory = 0x1 << 1;
 }
 #pragma mark - Collision Handling
 - (void)didBeginContact:(SKPhysicsContact *)contact{
-    [self die];
-    self.started = NO;
     self.finished = YES;
+    self.started = NO;
+    [self die];
 }
 #pragma mark - Game Center
 - (void)loadLeaderboardInfo{

@@ -8,12 +8,19 @@
 
 #import "FPYAppDelegate.h"
 #import "FPYScoreFormatter.h"
+#import <Crashlytics/Crashlytics.h>
+
 
 @implementation FPYAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [Crashlytics startWithAPIKey:@"1c6d125161cfd6155af441bc83d21a64632d815c"];
+        // Initialize tracker.
+    
+    
+
     return YES;
 }
 							

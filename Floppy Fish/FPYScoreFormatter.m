@@ -30,7 +30,9 @@ dispatch_once(&onceToken, ^{
 - (instancetype)init{
     self = [super init];
     if (self) {
-        [self preloadTextureFiles];
+        dispatch_async(dispatch_queue_create("com.andrewpaterson.textures", NULL), ^{
+            [self preloadTextureFiles];
+        });
     }
     return self;
 }
@@ -38,7 +40,7 @@ dispatch_once(&onceToken, ^{
 {
     self.scoreTextures2 = [NSMutableDictionary dictionary];
     for (int i = 0; i < 10; i++) {
-        SKTexture *texture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%d", i]];
+        SKTexture *texture = [SKTexture textureWithImage:[self imageWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d", i]] convertToSize:CGSizeMake(64, 64)]];
         [self.scoreTextures2 setValue:texture forKey:[NSString stringWithFormat:@"%d", i]];
     }
     self.scoreTextures1 = [NSMutableDictionary dictionary];
@@ -70,7 +72,7 @@ dispatch_once(&onceToken, ^{
     }
 }
 - (SKSpriteNode *)nodeForScore:(NSInteger)score scaleFactor:(float)scaleFactor{
-    SKSpriteNode *returnNode = [SKSpriteNode spriteNodeWithColor:[UIColor colorWithWhite:1.0 alpha:0.0] size:CGSizeMake(100 * scaleFactor, 36 * scaleFactor)];
+    SKSpriteNode *returnNode = [SKSpriteNode spriteNodeWithColor:[UIColor colorWithWhite:1.0 alpha:0.0] size:CGSizeMake(0 * scaleFactor, 0 * scaleFactor)];
         //TODO:Rest
     if (!self.scoreSprites1) {
         [self preloadTextureFiles];
@@ -78,36 +80,36 @@ dispatch_once(&onceToken, ^{
     if (scaleFactor == 1.0){
         SKSpriteNode *hundreds = [[self.scoreSprites1 objectForKey:[NSString stringWithFormat:@"%d", score/100]] copy];
         [returnNode addChild:hundreds];
-        hundreds.position = CGPointMake(16, 16);
+        hundreds.position = CGPointMake(10, 16);
         if ((score/100) == 0) {
             [returnNode removeAllChildren];
         }
         SKSpriteNode *tens = [[self.scoreSprites1 objectForKey:[NSString stringWithFormat:@"%d", (score % 100)/10]] copy];
         [returnNode addChild:tens];
-        tens.position = CGPointMake(50, 16);
-        if (((score % 100)/10) == 0) {
+        tens.position = CGPointMake(32, 16);
+        if (((score % 100)/10) == 0 && (!hundreds)) {
             [returnNode removeChildrenInArray:@[tens]];
         }
         SKSpriteNode *ones = [[self.scoreSprites1 objectForKey:[NSString stringWithFormat:@"%d", (score % 10)]] copy];
         [returnNode addChild:ones];
-        ones.position = CGPointMake(84, 16);
+        ones.position = CGPointMake(54, 16);
     }
     else if (scaleFactor == 2.0){
         SKSpriteNode *hundreds = [[self.scoreSprites2 objectForKey:[NSString stringWithFormat:@"%d", score/100]] copy];
         [returnNode addChild:hundreds];
-        hundreds.position = CGPointMake(32, 32);
+        hundreds.position = CGPointMake(20, 32);
         if ((score/100) == 0) {
             [returnNode removeAllChildren];
         }
         SKSpriteNode *tens = [[self.scoreSprites2 objectForKey:[NSString stringWithFormat:@"%d", (score % 100)/10]] copy];
         [returnNode addChild:tens];
-        tens.position = CGPointMake(100, 32);
-        if (((score % 100)/10) == 0) {
+        tens.position = CGPointMake(64, 32);
+        if (((score % 100)/10) == 0 && (!hundreds)) {
             [returnNode removeChildrenInArray:@[tens]];
         }
         SKSpriteNode *ones = [[self.scoreSprites2 objectForKey:[NSString stringWithFormat:@"%d", (score % 10)]] copy];
         [returnNode addChild:ones];
-        ones.position = CGPointMake(168, 32);
+        ones.position = CGPointMake(108, 32);
     }
     else{
         NSLog(@"Improper Scale Factor - Exiting with error code: 2");
@@ -124,10 +126,10 @@ dispatch_once(&onceToken, ^{
         SKSpriteNode *gameOver = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:empty]];
         SKSpriteNode *returnNode = [self nodeForScore:score scaleFactor:scaleFactor];
         [gameOver addChild:returnNode];
-        returnNode.position = CGPointMake(15 * scaleFactor, 0 * scaleFactor);
+        returnNode.position = CGPointMake(50 * scaleFactor, 0 * scaleFactor);
         SKSpriteNode *other = [self nodeForScore:highScore scaleFactor:scaleFactor];
         [gameOver addChild:other];
-        other.position = CGPointMake(15 * scaleFactor, -55 * scaleFactor);
+        other.position = CGPointMake(50 * scaleFactor, -55 * scaleFactor);
         return gameOver;
 
     }
@@ -137,10 +139,10 @@ dispatch_once(&onceToken, ^{
         SKSpriteNode *gameOver = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:empty]];
         SKSpriteNode *returnNode = [self nodeForScore:score scaleFactor:scaleFactor];
         [gameOver addChild:returnNode];
-        returnNode.position = CGPointMake(15 * scaleFactor, 0 * scaleFactor);
+        returnNode.position = CGPointMake(50 * scaleFactor, 0 * scaleFactor);
         SKSpriteNode *other = [self nodeForScore:highScore scaleFactor:scaleFactor];
         [gameOver addChild:other];
-        other.position = CGPointMake(15 * scaleFactor, -55 * scaleFactor);
+        other.position = CGPointMake(50 * scaleFactor, -55 * scaleFactor);
         return gameOver;
     }
     else if (score < 30){
@@ -149,10 +151,10 @@ dispatch_once(&onceToken, ^{
         SKSpriteNode *gameOver = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:empty]];
         SKSpriteNode *returnNode = [self nodeForScore:score scaleFactor:scaleFactor];
         [gameOver addChild:returnNode];
-        returnNode.position = CGPointMake(15 * scaleFactor, 0 * scaleFactor);
+        returnNode.position = CGPointMake(50 * scaleFactor, 0 * scaleFactor);
         SKSpriteNode *other = [self nodeForScore:highScore scaleFactor:scaleFactor];
         [gameOver addChild:other];
-        other.position = CGPointMake(15 * scaleFactor, -55 * scaleFactor);
+        other.position = CGPointMake(50 * scaleFactor, -55 * scaleFactor);
         return gameOver;
     }
     else if (score < 40){
@@ -161,10 +163,10 @@ dispatch_once(&onceToken, ^{
         SKSpriteNode *gameOver = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:empty]];
         SKSpriteNode *returnNode = [self nodeForScore:score scaleFactor:scaleFactor];
         [gameOver addChild:returnNode];
-        returnNode.position = CGPointMake(15 * scaleFactor, 0 * scaleFactor);
+        returnNode.position = CGPointMake(50 * scaleFactor, 0 * scaleFactor);
         SKSpriteNode *other = [self nodeForScore:highScore scaleFactor:scaleFactor];
         [gameOver addChild:other];
-        other.position = CGPointMake(15 * scaleFactor, -55 * scaleFactor);
+        other.position = CGPointMake(50 * scaleFactor, -55 * scaleFactor);
         return gameOver;
     }
     else if (score < 100){
@@ -173,10 +175,10 @@ dispatch_once(&onceToken, ^{
         SKSpriteNode *gameOver = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:empty]];
         SKSpriteNode *returnNode = [self nodeForScore:score scaleFactor:scaleFactor];
         [gameOver addChild:returnNode];
-        returnNode.position = CGPointMake(15 * scaleFactor, 0 * scaleFactor);
+        returnNode.position = CGPointMake(50 * scaleFactor, 0 * scaleFactor);
         SKSpriteNode *other = [self nodeForScore:highScore scaleFactor:scaleFactor];
         [gameOver addChild:other];
-        other.position = CGPointMake(15 * scaleFactor, -55 * scaleFactor);
+        other.position = CGPointMake(50 * scaleFactor, -55 * scaleFactor);
         return gameOver;
     }
     else{
@@ -185,10 +187,10 @@ dispatch_once(&onceToken, ^{
         SKSpriteNode *gameOver = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:empty]];
         SKSpriteNode *returnNode = [self nodeForScore:score scaleFactor:scaleFactor];
         [gameOver addChild:returnNode];
-        returnNode.position = CGPointMake(15 * scaleFactor, 0 * scaleFactor);
+        returnNode.position = CGPointMake(50 * scaleFactor, 0 * scaleFactor);
         SKSpriteNode *other = [self nodeForScore:highScore scaleFactor:scaleFactor];
         [gameOver addChild:other];
-        other.position = CGPointMake(15 * scaleFactor, -55 * scaleFactor);
+        other.position = CGPointMake(50 * scaleFactor, -55 * scaleFactor);
         return gameOver;
     }
     return nil;

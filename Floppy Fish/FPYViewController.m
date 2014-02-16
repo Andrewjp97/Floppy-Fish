@@ -22,10 +22,14 @@
 
     // Configure the view.
     SKView * skView = (SKView *)self.view;
-    skView.showsFPS = YES;
-    skView.showsNodeCount = YES;
+        //skView.showsFPS = YES;
+        //skView.showsNodeCount = YES;
+        //skView.showsDrawCount = YES;
     [self authenticatedPlayer:nil];
-    [self authenticateLocalPlayer];
+    dispatch_async(dispatch_queue_create("com.andrewpaterson.gkauth", NULL), ^{
+        [self authenticateLocalPlayer];
+    });
+
 
     // Create and configure the scene.
     SKScene * scene = [FPYMyScene sceneWithSize:skView.bounds.size];
@@ -64,5 +68,7 @@
     });
     
 }
-
+- (BOOL)shouldAutorotate{
+    return NO;
+}
 @end
