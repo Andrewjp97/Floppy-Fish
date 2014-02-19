@@ -24,7 +24,7 @@
             self.fishColor = FPYFishColorDefault;
         }
         else if ([color isEqualToString:@"red"]){
-            self.fishColor = FPYFishColorBlue;
+            self.fishColor = FPYFishColorRed;
         }
         else if ([color isEqualToString:@"blue"]){
             self.fishColor = FPYFishColorBlue;

@@ -205,6 +205,7 @@
             return @"RedFish";
             break;
     }
+    NSLog(@"%d", appD.fishColor);
 }
 - (UIImage *)imageWithImage:(UIImage *)image convertToSize:(CGSize)size {
         UIGraphicsBeginImageContext(size);

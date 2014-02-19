@@ -191,6 +191,7 @@
     sparkle.position = CGPointMake(0, -(CGRectGetHeight(fish.frame)) - 10);
     FPYAppDelegate *appD = [[UIApplication sharedApplication] delegate];
     appD.fishColor = self.selectedFishColor;
+    NSLog(@"%d", self.selectedFishColor);
     [[NSUserDefaults standardUserDefaults] synchronize];
 
 }
