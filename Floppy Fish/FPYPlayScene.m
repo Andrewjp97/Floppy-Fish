@@ -10,6 +10,7 @@
 #import "SKBButtonNode.h"
 #import "FPYMyScene.h"
 #import "FPYScoreFormatter.h"
+#import "FPYAppDelegate.h"
 @import CoreGraphics;
 
 @interface FPYPlayScene ()
@@ -27,6 +28,52 @@
 
 @implementation FPYPlayScene{
     float scaleFactor;
+}
+- (NSString *)imageForFishTwo{
+    FPYAppDelegate *appD = [[UIApplication sharedApplication] delegate];
+    switch (appD.fishColor) {
+        case FPYFishColorDefault:
+            return @"fishTwo";
+            break;
+        case FPYFishColorPurple:
+            return @"PurpleFishTwo";
+            break;
+        case FPYFishColorGreen:
+            return @"GreenFishTwo";
+            break;
+        case FPYFishColorBlue:
+            return @"BlueFishTwo";
+            break;
+        case FPYFishColorPink:
+            return @"PinkFishTwo";
+            break;
+        case FPYFishColorRed:
+            return @"RedFishTwo";
+            break;
+    }
+}
+- (NSString *)imageForFish{
+    FPYAppDelegate *appD = [[UIApplication sharedApplication] delegate];
+    switch (appD.fishColor) {
+        case FPYFishColorDefault:
+            return @"fish";
+            break;
+        case FPYFishColorPurple:
+            return @"PurpleFish";
+            break;
+        case FPYFishColorGreen:
+            return @"GreenFish";
+            break;
+        case FPYFishColorBlue:
+            return @"BlueFish";
+            break;
+        case FPYFishColorPink:
+            return @"PinkFish";
+            break;
+        case FPYFishColorRed:
+            return @"RedFish";
+            break;
+    }
 }
 @synthesize achievementsDictionary;
 #define PIPE @"Pipe_Coral_200x750REZ"
@@ -167,7 +214,7 @@ static const uint32_t pipeCategory = 0x1 << 1;
     return bg;
 }
 - (SKSpriteNode *)newFish{
-    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"fish"];
+    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:[self imageForFish]];
     sprite.position = CGPointMake(CGRectGetMidX(self.frame) - (30 * scaleFactor), CGRectGetMidY(self.frame));
     sprite.name = @"fish";
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
@@ -222,7 +269,7 @@ static const uint32_t pipeCategory = 0x1 << 1;
     sprite.physicsBody.contactTestBitMask = pipeCategory;
     sprite.physicsBody.dynamic = YES;
     sprite.physicsBody.collisionBitMask = pipeCategory;
-    SKAction *changeImages = [SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"fishTwo"] ,[SKTexture textureWithImageNamed:@"fish"]] timePerFrame:0.25];
+    SKAction *changeImages = [SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:[self imageForFishTwo]] ,[SKTexture textureWithImageNamed:[self imageForFish]]] timePerFrame:0.25];
     [sprite runAction:[SKAction repeatActionForever:changeImages]];
     self.fish = sprite;
     sprite.physicsBody.usesPreciseCollisionDetection = TRUE;

@@ -10,6 +10,8 @@
 #import "SKBButtonNode.h"
 #import "FPYPlayScene.h"
 #import "FPYScoreFormatter.h"
+#import "FPYAppDelegate.h"
+#import "FPYCustomizeScene.h"
 @import GameKit;
 
 
@@ -94,6 +96,7 @@
     }
     NSLog(@"%0.2f", average);
     [self addChild:label];
+    [self addChild:[self newCustomizeButton]];
 }
 
 
@@ -118,6 +121,20 @@
     [play setTouchUpInsideTarget:self action:@selector(play)];
     return play;
 }
+- (void)customize{
+    FPYCustomizeScene *scene = [[FPYCustomizeScene alloc] initWithSize:self.size];
+    SKTransition *transition = [SKTransition pushWithDirection:SKTransitionDirectionDown duration:0.5];
+    [self.view presentScene:scene transition:transition];
+}
+- (SKBButtonNode *)newCustomizeButton{
+    UIImage *a = [UIImage imageNamed:@"CustomizeButton_Coral_300x100REZ"];
+    SKTexture *tx = [SKTexture textureWithImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]];
+    SKTexture *tx2 = [SKTexture textureWithImage:[self darkenImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]]];
+    SKBButtonNode *play = [[SKBButtonNode alloc] initWithTextureNormal:tx selected:tx2];
+    play.position = CGPointMake((75 * scaleFactor), (180 * scaleFactor));
+    [play setTouchUpInsideTarget:self action:@selector(customize)];
+    return play;
+}
 - (SKBButtonNode *)newScoreButton{
     UIImage *a = [UIImage imageNamed:@"ScoresButton_Coral_300x110REZ"];
     SKTexture *tx = [SKTexture textureWithImage:[self imageWithImage:a convertToSize:CGSizeMake(90 * scaleFactor, 30 * scaleFactor)]];
@@ -137,11 +154,57 @@
     return play;
 }
 - (SKSpriteNode *)newFish{
-    SKSpriteNode *fish = [SKSpriteNode spriteNodeWithImageNamed:@"fish"];
+    SKSpriteNode *fish = [SKSpriteNode spriteNodeWithImageNamed:[self imageForFish]];
     fish.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-    SKAction *changeImages = [SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"fishTwo"] ,[SKTexture textureWithImageNamed:@"fish"]] timePerFrame:0.25];
+    SKAction *changeImages = [SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:[self imageForFishTwo]] ,[SKTexture textureWithImageNamed:[self imageForFish]]] timePerFrame:0.25];
     [fish runAction:[SKAction repeatActionForever:changeImages]];
     return fish;
+}
+- (NSString *)imageForFishTwo{
+    FPYAppDelegate *appD = [[UIApplication sharedApplication] delegate];
+    switch (appD.fishColor) {
+        case FPYFishColorDefault:
+            return @"fishTwo";
+            break;
+        case FPYFishColorPurple:
+            return @"PurpleFishTwo";
+            break;
+        case FPYFishColorGreen:
+            return @"GreenFishTwo";
+            break;
+        case FPYFishColorBlue:
+            return @"BlueFishTwo";
+            break;
+        case FPYFishColorPink:
+            return @"PinkFishTwo";
+            break;
+        case FPYFishColorRed:
+            return @"RedFishTwo";
+            break;
+    }
+}
+- (NSString *)imageForFish{
+    FPYAppDelegate *appD = [[UIApplication sharedApplication] delegate];
+    switch (appD.fishColor) {
+        case FPYFishColorDefault:
+            return @"fish";
+            break;
+        case FPYFishColorPurple:
+            return @"PurpleFish";
+            break;
+        case FPYFishColorGreen:
+            return @"GreenFish";
+            break;
+        case FPYFishColorBlue:
+            return @"BlueFish";
+            break;
+        case FPYFishColorPink:
+            return @"PinkFish";
+            break;
+        case FPYFishColorRed:
+            return @"RedFish";
+            break;
+    }
 }
 - (UIImage *)imageWithImage:(UIImage *)image convertToSize:(CGSize)size {
         UIGraphicsBeginImageContext(size);

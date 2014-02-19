@@ -12,6 +12,10 @@
 		AE308A3818A4764B00705152 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE308A3718A4764B00705152 /* CoreData.framework */; };
 		AE308A3A18A4765500705152 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE308A3918A4765500705152 /* SystemConfiguration.framework */; };
 		AE308A3C18A4765D00705152 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE308A3B18A4765D00705152 /* libz.dylib */; };
+		AE79301118B27049008B528D /* sparkle.sks in Resources */ = {isa = PBXBuildFile; fileRef = AE79300F18B27049008B528D /* sparkle.sks */; };
+		AE79301218B27049008B528D /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = AE79301018B27049008B528D /* spark.png */; };
+		AE79301518B2EECD008B528D /* FPYNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AE79301418B2EECD008B528D /* FPYNode.m */; };
+		AEABC7A018B1210700A1C822 /* FPYCustomizeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = AEABC79F18B1210700A1C822 /* FPYCustomizeScene.m */; };
 		AEC6F5DC18999E5200A40AA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC6F5DB18999E5200A40AA8 /* Foundation.framework */; };
 		AEC6F5DE18999E5200A40AA8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC6F5DD18999E5200A40AA8 /* CoreGraphics.framework */; };
 		AEC6F5E018999E5200A40AA8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC6F5DF18999E5200A40AA8 /* UIKit.framework */; };
@@ -50,6 +54,12 @@
 		AE308A3718A4764B00705152 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		AE308A3918A4765500705152 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AE308A3B18A4765D00705152 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		AE79300F18B27049008B528D /* sparkle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = sparkle.sks; sourceTree = "<group>"; };
+		AE79301018B27049008B528D /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		AE79301318B2EECD008B528D /* FPYNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPYNode.h; sourceTree = "<group>"; };
+		AE79301418B2EECD008B528D /* FPYNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPYNode.m; sourceTree = "<group>"; };
+		AEABC79E18B1210700A1C822 /* FPYCustomizeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPYCustomizeScene.h; sourceTree = "<group>"; };
+		AEABC79F18B1210700A1C822 /* FPYCustomizeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPYCustomizeScene.m; sourceTree = "<group>"; };
 		AEC6F5D818999E5200A40AA8 /* Fish Dash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fish Dash.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC6F5DB18999E5200A40AA8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AEC6F5DD18999E5200A40AA8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -151,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				AEC6F5EC18999E5200A40AA8 /* FPYAppDelegate.h */,
+				AE79301318B2EECD008B528D /* FPYNode.h */,
+				AE79301418B2EECD008B528D /* FPYNode.m */,
 				AEC6F5ED18999E5200A40AA8 /* FPYAppDelegate.m */,
 				AEC6F62018999EB800A40AA8 /* StoryBoards */,
 				AEC6F61F18999EAF00A40AA8 /* View Controllers */,
@@ -205,6 +217,10 @@
 		AEC6F61E18999EA800A40AA8 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				AEABC79E18B1210700A1C822 /* FPYCustomizeScene.h */,
+				AEABC79F18B1210700A1C822 /* FPYCustomizeScene.m */,
+				AE79300F18B27049008B528D /* sparkle.sks */,
+				AE79301018B27049008B528D /* spark.png */,
 				AEC6F5F818999E5200A40AA8 /* FPYMyScene.h */,
 				AEC6F5F918999E5200A40AA8 /* FPYMyScene.m */,
 				AEC6F6211899B1ED00A40AA8 /* FPYPlayScene.h */,
@@ -318,9 +334,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEC6F5FE18999E5200A40AA8 /* Images.xcassets in Resources */,
+				AE79301218B27049008B528D /* spark.png in Resources */,
 				AEC6F5F418999E5200A40AA8 /* Main_iPad.storyboard in Resources */,
 				AEC6F5F118999E5200A40AA8 /* Main_iPhone.storyboard in Resources */,
 				AEC6F5E818999E5200A40AA8 /* InfoPlist.strings in Resources */,
+				AE79301118B27049008B528D /* sparkle.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +379,9 @@
 				AED5246618A02D8800A0D6E0 /* FPYScoreFormatter.m in Sources */,
 				AEC6F5FA18999E5200A40AA8 /* FPYMyScene.m in Sources */,
 				AEC6F61C18999E8E00A40AA8 /* SKBButtonNode.m in Sources */,
+				AEABC7A018B1210700A1C822 /* FPYCustomizeScene.m in Sources */,
 				AEC6F5EA18999E5200A40AA8 /* main.m in Sources */,
+				AE79301518B2EECD008B528D /* FPYNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

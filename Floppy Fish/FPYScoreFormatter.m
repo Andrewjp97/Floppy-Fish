@@ -33,6 +33,7 @@ dispatch_once(&onceToken, ^{
         dispatch_async(dispatch_queue_create("com.andrewpaterson.textures", NULL), ^{
             [self preloadTextureFiles];
         });
+        
     }
     return self;
 }

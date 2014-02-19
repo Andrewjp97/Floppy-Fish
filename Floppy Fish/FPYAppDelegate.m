@@ -18,6 +18,32 @@
     // Override point for customization after application launch.
     [Crashlytics startWithAPIKey:@"1c6d125161cfd6155af441bc83d21a64632d815c"];
         // Initialize tracker.
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"fishColor"]) {
+        NSString *color = [[NSUserDefaults standardUserDefaults] objectForKey:@"fishColor"];
+        if ([color isEqualToString:@"default"]) {
+            self.fishColor = FPYFishColorDefault;
+        }
+        else if ([color isEqualToString:@"red"]){
+            self.fishColor = FPYFishColorBlue;
+        }
+        else if ([color isEqualToString:@"blue"]){
+            self.fishColor = FPYFishColorBlue;
+        }
+        else if ([color isEqualToString:@"green"]){
+            self.fishColor = FPYFishColorGreen;
+        }
+        else if ([color isEqualToString:@"pink"]){
+            self.fishColor = FPYFishColorPink;
+        }
+        else if ([color isEqualToString:@"purple"]){
+            self.fishColor = FPYFishColorPurple;
+        }
+    }
+    else{
+        self.fishColor = FPYFishColorDefault;
+        [[NSUserDefaults standardUserDefaults] setObject:@"default" forKey:@"fishColor"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     
     
 

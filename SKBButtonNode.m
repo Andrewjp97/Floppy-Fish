@@ -5,7 +5,7 @@
 //
 //
 #import "SKBButtonNode.h"
-#import <objc/message.h>
+
 
 
 @implementation SKBButtonNode
@@ -125,8 +125,12 @@
  */
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if ([self isEnabled]) {
-        objc_msgSend(_targetTouchDown, _actionTouchDown);
+        if (_actionTouchDown) {
+
+
+        [self.parent performSelectorOnMainThread:_actionTouchDown withObject:_targetTouchDown waitUntilDone:YES];
         [self setIsSelected:YES];
+        }
     }
 }
 
@@ -157,9 +161,17 @@
     CGPoint touchPoint = [touch locationInNode:self.parent];
 
     if ([self isEnabled] && CGRectContainsPoint(self.frame, touchPoint)) {
-        objc_msgSend(_targetTouchUpInside, _actionTouchUpInside);
+        if (_actionTouchUpInside) {
+
+
+        [self.parent performSelectorOnMainThread:_actionTouchUpInside withObject:_targetTouchUpInside waitUntilDone:YES];
+        }
     }
     [self setIsSelected:NO];
-    objc_msgSend(_targetTouchUp, _actionTouchUp);
+    if (_actionTouchUp) {
+
+
+    [self.parent performSelectorOnMainThread:_actionTouchUp withObject:_targetTouchUp waitUntilDone:YES];
+    }
 }
 @end
